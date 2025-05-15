@@ -78,6 +78,102 @@
           </div>
         </div>
 
+
+
+      <div class="main-container">
+        <!-- 上半部分容器 -->
+        <div class="upper-container">
+          <!-- 左侧第一个容器 -->
+          <div class="left-container">
+           <img
+            src="../../assets/LoginView/Log.png" height="117" width="293" />
+            <p class="description">
+              No matter the spices and herbs you are looking for be distracted by the readable.
+            </p>
+            <div class="social-icons">
+              <a href="#" class="icon">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="#" class="icon">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="#" class="icon">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a href="#" class="icon">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+              <a href="#" class="icon">
+                <i class="fab fa-google"></i>
+              </a>
+            </div>
+          </div>
+          <!-- Solutions容器 -->
+          <div class="solutions-container">
+            <h3 class="section-title">Solutions</h3>
+            <ul class="section-links">
+              <li><a href="#">Ecommerce</a></li>
+              <li><a href="#">Account</a></li>
+              <li><a href="#">Wishlist</a></li>
+              <li><a href="#">Register</a></li>
+              <li><a href="#">Cart</a></li>
+            </ul>
+          </div>
+          <!-- Company容器 -->
+          <div class="company-container">
+            <h3 class="section-title">Company</h3>
+            <ul class="section-links">
+              <li><a href="#">Home</a></li>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Contacts</a></li>
+              <li><a href="#">Shop</a></li>
+            </ul>
+          </div>
+          <!-- Latest News容器 -->
+          <div class="news-container">
+            <h3 class="section-title">Latest News</h3>
+            <div class="news-item" v-for="(news, index) in newsList" :key="index">
+              <img :src="news.image" alt="News Image" class="news-image">
+              <div class="news-details">
+                <span class="news-number">{{ news.number }}</span>
+                <h4 class="news-title">{{ news.title }}</h4>
+                <p class="news-date">{{ news.date }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- 下半部分容器 -->
+        <div class="lower-container">
+          <!-- 地址容器 -->
+          <div class="address-container">
+
+            <img src="../../assets/LoginView/loading.png" height="118" width="82" /><i class="fas fa-map-marker-alt"></i>
+            <p>
+              2416 Mapleview Drive<br>
+              Tampa, FL 33634
+            </p>
+          </div>
+          <!-- 邮箱容器 -->
+          <div class="email-container">
+            <i class="fas fa-envelope"></i>
+
+            <p>
+              Email : contact@website.com<br>
+              Inquiries : info@mail.com
+            </p>
+          </div>
+          <!-- 电话容器 -->
+          <div class="phone-container">
+            <i class="fas fa-phone"></i>
+            <p>
+              Telephone : 0029129102920<br>
+              Mobile : 0029129102920
+            </p>
+          </div>
+        </div>
+      </div>
+
     </template>
   </homePageFramework>
 </template>
@@ -95,6 +191,7 @@
         padding: 20px;
         box-sizing: border-box;
         color: white;
+
       }
 
       /* 其他样式保持不变 */
@@ -380,7 +477,147 @@
           padding: 25px;
         }
       }
+      /* 整体大容器样式 */
+      .main-container {
+        background-color: #222;
+        color: white;
+        padding: 20px;
+        font-family: Arial, sans-serif;
+      }
+
+      /* 上半部分容器样式 */
+      .upper-container {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+      }
+
+      /* 左侧第一个容器样式 */
+      .left-container {
+        text-align: center;
+        flex: 1;
+      }
+
+      .logo {
+        width: 150px;
+        margin-bottom: 10px;
+      }
+
+      .description {
+        line-height: 1.6;
+        margin-bottom: 15px;
+      }
+
+      .social-icons {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+      }
+
+      .icon {
+        color: white;
+        font-size: 20px;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .icon:hover {
+        color: #ff7e1d;
+      }
+
+      /* Solutions、Company、Latest News容器通用样式 */
+      .solutions-container,
+      .company-container,
+      .news-container {
+        flex: 1;
+        margin-left: 20px;
+      }
+
+      .section-title {
+        margin-bottom: 15px;
+        font-size: 20px;
+      }
+
+      .section-links {
+        list-style-type: none;
+        padding: 0;
+      }
+
+      .section-links li {
+        margin-bottom: 10px;
+      }
+
+      .section-links a {
+        color: #ccc;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .section-links a:hover {
+        color: white;
+      }
+
+      /* Latest News容器内新闻项样式 */
+      .news-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+      }
+
+      .news-image {
+        width: 80px;
+        height: 80px;
+        border-radius: 5px;
+        margin-right: 15px;
+      }
+
+      .news-details {
+        flex: 1;
+      }
+
+      .news-number {
+        background-color: #ff7e1d;
+        color: white;
+        padding: 3px 8px;
+        border-radius: 50%;
+        margin-right: 5px;
+      }
+
+      .news-title {
+        font-size: 16px;
+        margin-bottom: 5px;
+      }
+
+      .news-date {
+        color: #ccc;
+        font-size: 14px;
+      }
+
+      /* 下半部分容器样式 */
+      .lower-container {
+        display: flex;
+        justify-content: space-around;
+        border-top: 1px solid #444;
+        border-bottom: 1px solid #444;
+        padding: 20px 0;
+      }
+
+      /* 地址、邮箱、电话容器通用样式 */
+      .address-container,
+      .email-container,
+      .phone-container {
+        text-align: center;
+      }
+
+      .address-container i,
+      .email-container i,
+      .phone-container i {
+        font-size: 30px;
+        margin-bottom: 10px;
+        color: #ff7e1d;
+      }
     </style>
+
 
 
 
@@ -402,6 +639,20 @@ const login = () => {
   console.log('Logging in with:', { email: email.value, password: password.value });
   // 实际项目中这里应该调用API进行登录验证
 };
+const newsList = [
+  {
+    image: "https://picsum.photos/id/1080/300/200",
+    number: "12",
+    title: "Red Rocks Hickory Smoke Seasoning",
+    date: "June 4, 2022"
+  },
+  {
+    image: "https://picsum.photos/id/1081/300/200",
+    number: "9",
+    title: "This is a test to try out how things work",
+    date: "January 4, 2022"
+  }
+];
 
 </script>
 
