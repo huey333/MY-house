@@ -3,6 +3,7 @@
     <template #homePage>
       <!--   外壳   -->
       <div class="ShopBox">
+
         <!--    标题    -->
         <div class="ShopTitleBox">
           <img src="@/assets/LoginView/Template1.jpg" alt="水果" />
