@@ -1,6 +1,7 @@
 <template>
   <homePageFramework>
     <template #homePage>
+                                              <!-- header 头部布局-->
       <div class="login-page">
         <div class="content">
           <h1 class="title1">Login</h1>
@@ -28,7 +29,7 @@
             <p>are differences. Spices that .</p>
           </div>
 
-                                    <!-- 登陆页面的布局 -->
+                                    <!-- body登陆页面的布局 -->
           <!-- 主内容区域，包含图片和登录表单两部分，采用flex布局横向排列 -->
           <div class="main-content">
             <!-- 左侧图片区域，用于展示香料图片和描述文字，设置flex属性占空间、纵向排列、居中内容，有背景色和内边距 -->
@@ -78,7 +79,7 @@
           </div>
         </div>
 
-
+                                      <!-- foot底部布局-->
 
       <div class="main-container">
         <!-- 上半部分容器 -->
@@ -140,7 +141,9 @@
                 <h4 class="news-title">{{ news.title }}</h4>
                 <p class="news-date">{{ news.date }}</p>
               </div>
+
             </div>
+
           </div>
         </div>
         <!-- 下半部分容器 -->
@@ -178,6 +181,7 @@
   </homePageFramework>
 </template>
     <style scoped lang="scss">
+                                               /* header 头部属性 */
       .login-page {
         background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
         url('@/assets/LoginView/background.jpg'); /* 叠加暗色渐变 */
@@ -247,7 +251,7 @@
       }
 
 
-
+                                               /* body登录页属性 */
 
 
       /* 整个认证容器样式 */
@@ -477,9 +481,11 @@
           padding: 25px;
         }
       }
+
+                                               /* foot底部属性 */
       /* 整体大容器样式 */
       .main-container {
-        background-color: #222;
+        background-color: #222429;
         color: white;
         padding: 20px;
         font-family: Arial, sans-serif;
@@ -490,12 +496,16 @@
         display: flex;
         justify-content: space-between;
         margin-bottom: 20px;
+        margin-left: 200px;
+        margin-right: 200px;
+        margin-top: 70px;
       }
 
       /* 左侧第一个容器样式 */
       .left-container {
         text-align: center;
         flex: 1;
+        margin-right: 70px;
       }
 
       .logo {
@@ -531,37 +541,45 @@
       .news-container {
         flex: 1;
         margin-left: 20px;
+
       }
+
 
       .section-title {
         margin-bottom: 15px;
         font-size: 20px;
+        font-weight: 800;
       }
 
       .section-links {
         list-style-type: none;
         padding: 0;
+
       }
 
       .section-links li {
-        margin-bottom: 10px;
+        margin-bottom: 30px;
+        margin-top: 10px;
+        margin-bottom: 20px;
+
       }
 
       .section-links a {
-        color: #ccc;
+        color: #989a9e;
+        font-weight: 549
+      ;
         text-decoration: none;
         transition: color 0.3s ease;
       }
 
       .section-links a:hover {
         color: white;
+
       }
 
       /* Latest News容器内新闻项样式 */
       .news-item {
         display: flex;
-        align-items: center;
-        margin-bottom: 15px;
       }
 
       .news-image {
@@ -576,11 +594,18 @@
       }
 
       .news-number {
+        position: relative;
+
         background-color: #ff7e1d;
         color: white;
         padding: 3px 8px;
         border-radius: 50%;
-        margin-right: 5px;
+        display: flex;
+        width: 32px;         // 固定宽度
+        height: 32px;        // 固定高度
+        align-items: center; // 垂直居中
+        justify-content: center; // 水平居中
+        font-size: 16px;
       }
 
       .news-title {
@@ -600,6 +625,11 @@
         border-top: 1px solid #444;
         border-bottom: 1px solid #444;
         padding: 20px 0;
+        background-color: #1c1e22;
+        width: 70%;
+        height: 160px;
+        justify-content: center;
+
       }
 
       /* 地址、邮箱、电话容器通用样式 */
@@ -628,9 +658,9 @@ import homePageFramework from '@/components/HomePageFramework/homePageFramework.
 import { ref } from 'vue';
 
 // 创建响应式变量email，用于存储邮箱输入值
-const email = ref('');
+const email = ref(['']);
 // 创建响应式变量password，用于存储密码输入值
-const password = ref('');
+const password = ref(['']);
 // 创建响应式变量rememberMe，用于存储“记住我”复选框的勾选状态
 const rememberMe = ref(false);
 
