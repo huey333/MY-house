@@ -66,7 +66,7 @@
 
               <div class="IntroductionMinAbout2">
                 <div class="IntroductionMinImgBox">
-                  <img src="@/assets/Confirm.png" />
+                  <img src="@/assets/Confirm.png" alt=""/>
                 </div>
                 <span class="IntroductionMinAbout2_1">
                   我们提供最完整的商品，最完整的服务，最完整的体验
@@ -75,7 +75,7 @@
 
               <div class="IntroductionMinAbout2">
                 <div class="IntroductionMinImgBox">
-                  <img src="@/assets/Confirm.png" />
+                  <img src="@/assets/Confirm.png" alt="" />
                 </div>
                 <span class="IntroductionMinAbout2_1">
                   我们提供最完整的商品，最完整的服务，最完整的体验
@@ -84,7 +84,7 @@
 
               <div class="IntroductionMinAbout2">
                 <div class="IntroductionMinImgBox">
-                  <img src="@/assets/Confirm.png" />
+                  <img src="@/assets/Confirm.png" alt=""/>
                 </div>
                 <span class="IntroductionMinAbout2_1">
                   我们提供最完整的商品，最完整的服务，最完整的体验
@@ -96,19 +96,19 @@
               <!--   图标   -->
               <div style="display: flex">
                 <div class="DisplayTemplate">
-                  <img src="@/assets/Fruit.png" />
+                  <img src="@/assets/Fruit.png" alt="" />
                   <span class="DisplayTemplateNumber">500+</span>
                   <span class="DisplayTemplateTitle">水果</span>
                 </div>
 
                 <div class="DisplayTemplate">
-                  <img src="@/assets/Grouping.png" />
+                  <img src="@/assets/Grouping.png" alt="" />
                   <span class="DisplayTemplateNumber">500+</span>
                   <span class="DisplayTemplateTitle">农户</span>
                 </div>
 
                 <div class="DisplayTemplate">
-                  <img src="@/assets/Honor.png" />
+                  <img src="@/assets/Honor.png" alt="" />
                   <span class="DisplayTemplateNumber">500+</span>
                   <span class="DisplayTemplateTitle">荣誉</span>
                 </div>
@@ -183,7 +183,7 @@
               <div class="text">
                 <span style="font-size: 18px; font-weight: bold">精品苹果</span>
                 <p></p>
-                <span style="color:; font-weight: bold">2 元/斤</span>
+                <span style="color:#e67e22; font-weight: bold">2 元/斤</span>
               </div>
             </div>
           </div>
@@ -212,11 +212,6 @@
             </div>
           </div>
         </div>
-
-
-
-
-
 
 
 
