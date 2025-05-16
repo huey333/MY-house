@@ -179,7 +179,7 @@
   </homePageFramework>
 </template>
 <style scoped lang="scss">
-                                          /*header头部属性 */
+                                          /*header头部属性.*/
 .login-page {
   background-image:
     linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
