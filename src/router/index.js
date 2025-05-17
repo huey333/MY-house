@@ -4,6 +4,8 @@ import homeView from '../views/Home/homeView.vue'
 import Login from '@/views/LoginView/Login.vue'
 import SignUp from '@/views/LoginView/SignUp.vue'
 import Shop from '@/views/ShopView/Shop.vue'
+import Cart from '@/views/ShopView/Cart.vue'
+
 
 
 const router = createRouter({
@@ -25,6 +27,12 @@ const router = createRouter({
       component: Login,
     },
     {
+      path: '/Cart',
+      name: 'Cart',
+      component: Cart,
+    },
+
+    {
       path: '/signup',
       name: 'signup',
       component: SignUp,
@@ -34,6 +42,7 @@ const router = createRouter({
       name: 'shop',
       component: Shop,
     },
+
 
   ],
 })
