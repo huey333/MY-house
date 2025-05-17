@@ -1,7 +1,7 @@
 <template>
   <homePageFramework>
     <template #homePage>
-                                             <!-- header 头部布局-->
+      <!-- header 头部布局-->
       <div class="login-page">
         <div class="content">
           <h1 class="title1">Login</h1>
@@ -29,7 +29,7 @@
           <p>are differences. Spices that .</p>
         </div>
 
-                                         <!-- 登陆页面的布局 -->
+        <!-- 登陆页面的布局 -->
         <!-- 主内容区域，包含图片和登录表单两部分，采用flex布局横向排列 -->
         <div class="main-content">
           <!-- 左侧图片区域，用于展示香料图片和描述文字，设置flex属性占空间、纵向排列、居中内容，有背景色和内边距 -->
@@ -81,8 +81,9 @@
           </div>
         </div>
       </div>
-                                        <!--foot底部布局-->
+      <!--foot底部布局-->
       <div class="main-container">
+        <div class="FootBackGround"></div>
         <!-- 上半部分容器 -->
         <div class="upper-container">
           <!-- 左侧第一个容器 -->
@@ -148,9 +149,10 @@
         <div class="lower-container">
           <!-- 地址容器 -->
           <div class="address-container">
-            <img src="../../assets/LoginView/loading.png" height="118" width="82" /><i
+            <i
               class="fas fa-map-marker-alt"
             ></i>
+
             <p>
               2416 Mapleview Drive<br />
               Tampa, FL 33634
@@ -174,12 +176,16 @@
             </p>
           </div>
         </div>
+        <div class="lower-container2">
+
+
+        </div>
       </div>
     </template>
   </homePageFramework>
 </template>
 <style scoped lang="scss">
-                                          /*header头部属性.*/
+/*header头部属性.*/
 .login-page {
   background-image:
     linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
@@ -244,7 +250,7 @@
   margin: 0 5px;
   color: black; /* 设置分隔符颜色 */
 }
-                                          /* body登录页面属性 */
+/* body登录页面属性 */
 /* 整个认证容器样式 */
 .auth-container {
   display: flex;
@@ -473,21 +479,25 @@
   }
 }
 
-                                                  /* foot底部属性 */
+/* foot底部属性 */
 /* 整体大容器样式 */
-.main-container {
 
-  background-color: #222;
+.main-container {
+  position: relative;
+  background-color: #222429;
   color: white;
+
   padding: 20px;
   font-family: Arial, sans-serif;
+  padding: 80px 200px 0px 200px;
 }
 
 /* 上半部分容器样式 */
 .upper-container {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 20px;
+
+  margin-bottom: 55px;
 }
 
 /* 左侧第一个容器样式 */
@@ -529,8 +539,11 @@
 .news-container {
   flex: 1;
   margin-left: 20px;
+  z-index: 1;
 }
-
+.news-container {
+  position: relative;
+}
 .section-title {
   margin-bottom: 15px;
   font-size: 20px;
@@ -554,12 +567,27 @@
 .section-links a:hover {
   color: white;
 }
+.FootBackGround {
+  transform: scaleX(-1); /* 水平镜像 */
+  left: 73%;
+  top: 28%;
+  width: 28%;
+  height: 50%;
+  bottom: 0;
+  position: absolute;
+  background-image: url('@/assets/LoginView/FootBackground.jpg');
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  background-size: 83%;
+  pointer-events: none;
+  filter: contrast(1.5); // 对比度增强为 1.5 倍，可根据需要调整
+  z-index: 0; /* 确保背景图在最底层 */
+}
 
 /* Latest News容器内新闻项样式 */
 .news-item {
   display: flex;
   align-items: center;
-
 }
 
 .news-image {
@@ -581,8 +609,8 @@
   padding: 3px 8px;
   border-radius: 50%;
   display: flex;
-  width: 32px;         // 固定宽度
-  height: 32px;        // 固定高度
+  width: 32px; // 固定宽度
+  height: 32px; // 固定高度
   align-items: center; // 垂直居中
   justify-content: center; // 水平居中
   font-size: 16px;
@@ -600,19 +628,33 @@
 }
 
 /* 下半部分容器样式 */
+.lower-container2{
+  height: 60px;
+}
 .lower-container {
   display: flex;
-  justify-content: space-around;
-  border-top: 1px solid #444;
+/*  justify-content: space-around;
+  border-top: 1px solid #444;*/
+  background-color: #1c1e22;
   border-bottom: 1px solid #444;
   padding: 20px 0;
+  height: 130px;
+  position: relative;
+  z-index: 1; /* 确保背景图在最底层 */
+
 }
 
 /* 地址、邮箱、电话容器通用样式 */
 .address-container,
 .email-container,
 .phone-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;   // 水平居中
+  justify-content: center; // 垂直居中
   text-align: center;
+  margin-left: 150px;
+  height: 100%; // 确保容器有高度用于垂直居中
 }
 
 .address-container i,
