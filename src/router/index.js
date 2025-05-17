@@ -5,7 +5,7 @@ import Login from '@/views/LoginView/Login.vue'
 import SignUp from '@/views/LoginView/SignUp.vue'
 import Shop from '@/views/ShopView/Shop.vue'
 import Cart from '@/views/ShopView/Cart.vue'
-
+import Wishlist from '@/views/ShopView/Wishlist.vue'
 
 
 const router = createRouter({
@@ -30,6 +30,11 @@ const router = createRouter({
       path: '/Cart',
       name: 'Cart',
       component: Cart,
+    },
+    {
+      path: '/Wishlist',
+      name: 'Wishlist',
+      component: Wishlist,
     },
 
     {

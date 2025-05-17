@@ -1,87 +1,80 @@
 <template>
   <homePageFramework>
     <template #homePage>
-      <!-- header 头部布局-->
+      <!-- Wishlist header 头部布局-->
       <div class="login-page">
         <div class="content">
-          <h1 class="title1">Login</h1>
+          <h1 class="title1">Wishlist</h1>
           <p class="description1">
-            Cloves, ginger, or pepper. Herbs are derived from green leaves and often grow in
-            temperate climates. Common herbs are mint, rosemary.
+            Cloves, ginger, or pepper. Herbs are derived from green leaves and often grow in temperate climates.
+            Common herbs are mint, rosemary.
           </p>
         </div>
 
         <div class="breadcrumb">
           <span class="breadcrumb-item">Home</span>
           <span class="breadcrumb-separator">/</span>
-          <span class="current">Login</span>
+          <span class="current">Wishlist</span>
         </div>
       </div>
 
-      <!-- 整个认证容器，作为页面整体的包裹元素，设置flex布局纵向排列内容，最小高度占满视口高度，指定字体 -->
-      <div class="auth-container">
-        <!-- 顶部标题区域，用于放置“Log in”标题，设置内边距、文本居中、背景色 -->
-        <div class="header">
-          <h1 class="title2">Log <span class="highlight">in</span></h1>
-          <p>
-            For the most part, chefs use the terms "spices and herbs" interchangeably, but there
-          </p>
-          <p>are differences. Spices that .</p>
-        </div>
 
-        <!-- 登陆页面的布局 -->
-        <!-- 主内容区域，包含图片和登录表单两部分，采用flex布局横向排列 -->
-        <div class="main-content">
-          <!-- 左侧图片区域，用于展示香料图片和描述文字，设置flex属性占空间、纵向排列、居中内容，有背景色和内边距 -->
-          <div class="left-panel">
-
-            <img src="../../assets/LoginView/loginimg.jpg" height="429" width="540" />
-            <!-- 描述文字，设置字体大小、颜色、最大宽度、文本居中、行高，用于介绍相关内容 -->
-          </div>
-
-          <!-- 右侧登录表单区域，设置flex属性占空间、纵向排列、居中内容，有内边距 -->
-          <div class="right-panel">
-            <!-- 登录表单，设置宽度、最大宽度、内边距、边框圆角、阴影、背景色 -->
-            <form class="login-form">
-              <!-- 邮箱输入框，使用v-model实现双向绑定，绑定到email变量，设置样式 -->
-              <input type="email" v-model="email" placeholder="Email" class="input-field" />
-              <!-- 密码输入框，使用v-model实现双向绑定，绑定到password变量，设置样式 -->
-              <input
-                type="password"
-                v-model="password"
-                placeholder="Password"
-                class="input-field"
-              />
-
-              <!-- 表单选项区域，用于放置“记住我”复选框和“忘记密码？”链接，设置布局和样式 -->
-              <div class="form-options">
-                <!-- “记住我”相关内容区域，用于包裹复选框和标签，设置横向布局 -->
-                <div class="remember-me">
-                  <!-- 记住我复选框，使用v-model实现双向绑定，绑定到rememberMe变量，设置样式 -->
-                  <input type="checkbox" v-model="rememberMe" id="remember-checkbox" />
-                  <!-- 记住我复选框的标签，设置样式 -->
-                  <label for="remember-checkbox">Remember Me</label>
+        <!-- Wishlist body页面 -->
+      <div  style="margin-bottom:  100px">
+        <!-- 商品表格 -->
+        <table>
+          <!-- 表格头部 -->
+          <thead>
+          <tr>
+            <th></th>
+            <th>Product</th>
+            <th>Price</th>
+            <th>Availability</th>
+            <th>Total</th>
+            <th>Actions</th>
+          </tr>
+          </thead>
+          <!-- 表格内容 - 使用v-for指令循环渲染商品列表 -->
+          <tbody>
+          <tr v-for="(item, index) in products" :key="index">
+            <!-- 删除商品按钮 -->
+            <td ><buttonX @click="removeProduct(index)"><el-icon style="font-size: 28px;"><Close /></el-icon></buttonX></td>
+            <!-- 商品信息区域 -->
+            <td>
+              <!-- 商品图片 -->
+              <img :src="item.image" alt="Product Image" style="width: 70px; height: 70px;">
+              <!-- 商品名称 -->
+              <div style="font-weight: bold;">{{ item.name }}
+              <!-- 动态显示商品数量单位 --><br>
+              <span v-if="item.quantity > 1">{{ item.quantity }} Pieces</span>
+              <span v-else>{{ item.quantity }} Piece</span>
                 </div>
-                <!-- 忘记密码链接，设置颜色、去除下划线，有鼠标悬停变色的过渡动画，鼠标悬停时颜色改变 -->
-                <a href="#" class="forgot-password">Forgot password?</a>
+            </td>
+
+            <!-- 商品单价（使用currency过滤器格式化） -->
+            <td>{{ item.price | currency }}$</td>
+            <!-- 商品数量输入框 -->
+            <td>
+              <!-- v-model双向绑定商品数量 -->
+              <div
+                :style="{ color: item.Availability === 'In Stock' ? 'green' : 'red' }"
+              >
+                {{ item.Availability }}
               </div>
+            </td>
+            <!-- 商品小计（单价×数量） -->
+            <td>{{ item.price * item.quantity | currency }}</td>
+            <td><button>Add To Cart</button></td>
+          </tr>
+          </tbody>
+        </table>
 
-              <!-- 登录按钮，点击时调用login方法，prevent修饰符阻止表单默认提交行为，设置样式和交互效果 -->
-              <button type="submit" class="login-button" @click.prevent="login">LOGIN</button>
-              <!-- 使用Google登录按钮，设置样式和交互效果 -->
-              <button type="button" class="google-button">
-                <i class="fa-brands fa-google mr-2"></i> CONTINUE WITH GOOGLE
-              </button>
-            </form>
+        <!-- 优惠券输入区域 -->
 
-            <!-- 注册提示文字区域，设置外边距、字体大小、颜色 -->
-            <p class="signup-text">
-              Don't Have an Account? <a href="#" class="signup-link">Sign Up</a>
-            </p>
-          </div>
-        </div>
       </div>
-      <!--foot底部布局-->
+
+
+      <!--Wishlist foot底部布局-->
       <div class="main-container">
         <div class="FootBackGround"></div>
         <!-- 上半部分容器 -->
@@ -185,7 +178,7 @@
   </homePageFramework>
 </template>
 <style scoped lang="scss">
-/*header头部属性.*/
+/*Wishlist header头部属性.*/
 .login-page {
   background-image:
     linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
@@ -225,7 +218,7 @@
   align-items: center;
   margin-left: 1200px;
   background-color: white; /* 设置背景颜色 */
-  width: 130px; /* 设置宽度 */
+  width: 140px; /* 设置宽度 */
   height: 60px; /* 设置高度 */
   padding: 10px; /* 可选：增加内边距 */
   border-radius: 5px; /* 可选：让背景有圆角 */
@@ -244,243 +237,135 @@
 }
 
 .current {
-
 }
 
 .breadcrumb-separator {
   margin: 0 5px;
   color: black; /* 设置分隔符颜色 */
 }
-/* body登录页面属性 */
-/* 整个认证容器样式 */
-.auth-container {
+/* body页面属性 */
+/* 购物车表格样式 */
+table {
+  border-collapse: collapse; /* 合并单元格边框 */
+  width: 80%; /* 表格宽度占满容器 */
+  margin-top: 100px; /* 上边距 */
+  margin-left: 150px; /* 左边距 */
+  margin-right: 150px; /* 右边距 */
+  margin-bottom: 13px;
+
+}
+
+/* 表格头部和单元格样式 */
+th, td {
+
+  border: 1px solid #ddd; /* 边框样式 */
+  padding: 8px  8px  8px 8px; /* 内边距 */
+  text-align: left; /* 文本左对齐 */
+  font-size: 20px; /* 字体大小 */
+  font-weight: bold;
+  height: 80px; /* 单元格高度 */
+  align-items: center; /* 垂直居中 */
+ }
+td:first-of-type {
+                  width:100px;
+  text-align: center; /* 文本左对齐 */
+                }
+th:nth-of-type(2) {
+  width: 500px;
+  padding: 8px;
   display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  font-family: 'Inter', sans-serif;
-}
 
-/* 顶部标题区域样式 */
-.header {
-  padding: 40px 0;
-  text-align: center;
-  background-color: #f8f9fa;
 }
-
-/* 标题样式 */
-.title2 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: #333;
-}
-
-/* 标题中“in”文字的样式，突出颜色 */
-.highlight {
-  color: #ff7e1d;
-}
-
-/* 主内容区域样式 */
-.main-content {
+td:nth-of-type(2) {
+  width: 500px;
+  padding: 8px;
   display: flex;
-  flex: 1;
+
+
+
+}
+td:nth-of-type(3) {
+          width: 120px;
+          color: #67696e;
+
+}
+td:nth-of-type(4) {
+  width: 200px;
+  font-weight: bold;
+  color: #666666;
+
 }
 
-/* 左侧图片区域样式 */
-.left-panel {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: #f8f9fa;
-  padding: 40px;
+td:nth-of-type(5) {
+  width: 100px;
+  font-weight: bold;
+  color: #666666;
+
+}
+td:nth-of-type(6) {
+  width: 200px;
+
+
 }
 
-/* 香料图片样式 */
-.spices-image {
-  width: 80%;
-  max-width: 500px;
-  border-radius: 8px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px;
-  transition: transform 0.3s ease;
+
+/* 删除按钮样式 */
+buttonX {
+  background: none; /* 无背景 */
+  border: none; /* 无边框 */
+  cursor: pointer; /* 鼠标指针样式 */
+  color: red; /* 红色文字 */
+}
+/* 重置默认样式，消除浏览器默认的内外边距等影响 */
+
+EnterCouponCode{
+  width: 350px;
+  height: 60px;
+  background: #f2f3f6;
+  border-top-left-radius: 10px; /* 左上角圆角 */
+  border-bottom-left-radius: 10px; /* 左下角圆角 */
+  padding: 0 15px; /* 内边距，让文字和边框有间距 */
+  font-size: 16px; /* 字体大小 */
+
+
 }
 
-/* 香料图片鼠标悬停样式 */
-.spices-image:hover {
-  transform: scale(1.02);
-}
-
-/* 描述文字样式 */
-.description {
-  font-size: 1rem;
-  color: #666;
-  max-width: 400px;
-  text-align: center;
-  line-height: 1.6;
-}
-
-/* 右侧登录表单区域样式 */
-.right-panel {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 40px;
-}
-
-/* 登录表单样式 */
-.login-form {
-  width: 100%;
-  max-width: 400px;
-  padding: 40px;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  background-color: white;
-}
-
-/* 输入框样式 */
-.input-field {
-  width: 100%;
-  padding: 14px 18px;
-  margin-bottom: 20px;
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
-  font-size: 1rem;
-  outline: none;
-  transition: border-color 0.3s ease;
-}
-
-/* 输入框获得焦点时的样式 */
-.input-field:focus {
-  border-color: #ff7e1d;
-}
-
-/* 表单选项区域样式 */
-.form-options {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 25px;
-  font-size: 0.9rem;
-}
-
-/* “记住我”区域样式 */
-.remember-me {
-  display: flex;
-  align-items: center;
-}
-
-/* “记住我”复选框样式（在remember-me区域内的样式补充） */
-.remember-me input {
-  margin-right: 8px;
-}
-
-/* 忘记密码链接样式 */
-.forgot-password {
-  color: #ff7e1d;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-/* 忘记密码链接鼠标悬停样式 */
-.forgot-password:hover {
-  color: #e66c00;
-}
-
-/* 登录按钮样式 */
-.login-button {
-  width: 100%;
-  padding: 14px 18px;
-  background-color: #ff7e1d;
-  color: white;
+button {
+  position: relative;
+  height: 60px;
   border: none;
-  border-radius: 8px;
-  font-size: 1rem;
-  font-weight: 600;
+  background-color: #ff9900;
+  color: white;
+  border-radius: 30px; /* 统一设置为高度的一半（60px/2=30px） */
+  padding: 0 20px;
+  font-size: 16px;
   cursor: pointer;
+  overflow: hidden;
   transition: all 0.3s ease;
-  margin-bottom: 15px;
 }
 
-/* 登录按钮鼠标悬停样式 */
-.login-button:hover {
-  background-color: #e66c00;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(255, 126, 29, 0.25);
-}
-
-/* 使用Google登录按钮样式 */
-.google-button {
+button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  padding: 14px 18px;
-  background-color: white;
-  color: #333;
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  height: 0; /* 初始高度为0 */
+  background-color: rgba(0, 0, 0, 0.15); /* 半透明黑色 */
+  transition: height 0.3s ease-out; /* 高度变化的过渡效果 */
+  z-index: 1; /* 确保在按钮内容之上 */
 }
 
-/* 使用Google登录按钮鼠标悬停样式 */
-.google-button:hover {
-  background-color: #f8f9fa;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+button:hover::after {
+  height: 100%; /* 悬停时高度变为100% */
 }
 
-/* 注册提示文字样式 */
-.signup-text {
-  margin-top: 25px;
-  font-size: 0.9rem;
-  color: #666;
+button:hover {
+  transform: translateY(-2px); /* 轻微上浮效果 */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 添加阴影增强立体感 */
 }
 
-/* 注册链接样式 */
-.signup-link {
-  color: #ff7e1d;
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s ease;
-}
-
-/* 注册链接鼠标悬停样式 */
-.signup-link:hover {
-  color: #e66c00;
-}
-
-/* 响应式布局 - 移动端，当屏幕宽度小于等于768px时应用以下样式 */
-@media (max-width: 768px) {
-  /* 主内容区域改为纵向排列 */
-  .main-content {
-    flex-direction: column;
-  }
-
-  /* 左侧图片区域和右侧登录表单区域内边距调整 */
-  .left-panel,
-  .right-panel {
-    padding: 20px;
-  }
-
-  /* 香料图片宽度调整 */
-  .spices-image {
-    width: 100%;
-    max-width: 300px;
-  }
-
-  /* 登录表单内边距调整 */
-  .login-form {
-    padding: 25px;
-  }
-}
-
-/* foot底部属性 */
+/* Wishlistfoot底部属性  */
 /* 整体大容器样式 */
 
 .main-container {
@@ -669,22 +554,32 @@
 
 <script setup>
 import homePageFramework from '@/components/HomePageFramework/homePageFramework.vue'
+import { ref } from 'vue';
+const products = ref([
+  {
+    name: 'Red Chili Ground',
+    price: 12.99,
+    quantity: 1,
+    Availability: 'In Stock',
+    image:'src/assets/CratImage/Bottle1.png', // 需替换为实际图片地址
+  },
+  {
+    name: 'Black Pepper Shaker',
+    price: 9.99,
+    quantity: 1,
+    Availability: 'In Stock',
+    image: 'src/assets/CratImage/Bottle2.png', // 需替换为实际图片地址
+  },
+  {
+    name: 'Cumin Ground',
+    price: 13.99,
+    quantity: 1,
 
-// 引入Vue 3组合式API中的ref函数，用于创建响应式变量
-import { ref } from 'vue'
+    Availability: 'Out of Stock',
+    image: 'src/assets/CratImage/Bottle3.png', // 需替换为实际图片地址
+  },
+]);
 
-// 创建响应式变量email，用于存储邮箱输入值
-const email = ref('')
-// 创建响应式变量password，用于存储密码输入值
-const password = ref('')
-// 创建响应式变量rememberMe，用于存储“记住我”复选框的勾选状态
-const rememberMe = ref(false)
-
-// 登录函数，目前在控制台打印登录信息，实际项目中应调用API进行登录验证
-const login = () => {
-  console.log('Logging in with:', { email: email.value, password: password.value })
-  // 实际项目中这里应该调用API进行登录验证
-}
 const newsList = [
   {
     image: 'https://picsum.photos/id/1080/300/200',
