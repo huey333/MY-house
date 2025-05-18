@@ -193,8 +193,8 @@
   background-size: cover;
   background-position: center;
   height: 60vh;
+  position: relative;
 
-  display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding: 20px;
@@ -204,36 +204,32 @@
 
 /* 其他样式保持不变 */
 .title1 {
-  font-size: 3em;
-  margin-bottom: 10px;
-  margin-left: 150px;
-  position: relative;
-  top: 60px; /* 可选：增加顶部位置 */
+  font-size: 4em;
+
+  position: absolute;
+  top: 70px; /* 可选：增加顶部位置 */
+  left: 170px;
   font-weight: bold; /* 设置字体加粗 */
 }
 
 .description1 {
   font-size: 1em;
   max-width: 500px;
-  margin-left: 150px;
-  position: relative;
-  top: 60px; /* 可选：增加顶部位置 */
+  position: absolute;
+  top: 150px; /* 可选：增加顶部位置 */
+  left:170px;
 }
 
 .breadcrumb {
-  display: flex;
-  align-items: center;
-  margin-left: 1200px;
-  background-color: white; /* 设置背景颜色 */
-  width: 130px; /* 设置宽度 */
-  height: 60px; /* 设置高度 */
-  padding: 10px; /* 可选：增加内边距 */
-  border-radius: 5px; /* 可选：让背景有圆角 */
+  position: absolute;
+  left:1200px;
+  bottom: 0px;
+  background-color: white;
+  width: 9%; /* 这里设置为占父容器宽度的20%，可根据实际调整 */
+  height: 60px;
+  padding: 15px ;
+  border-radius: 0;
   color: black;
-  border-radius: 0; /* 去掉圆角 */
-  margin-top: 50px; /* 可选：增加顶部外边距 */
-  position: relative;
-  top: 20px; /* 可选：增加顶部位置 */
 }
 
 .breadcrumb-item {

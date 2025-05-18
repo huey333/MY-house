@@ -20,7 +20,7 @@
 
 
         <!-- Wishlist body页面布局 -->
-      <div  style="margin-bottom:  100px ;">
+      <div  style="margin-bottom:100px ; max-width: 1200px;">
         <!-- 商品表格 -->
         <table>
           <!-- 表格头部 -->
@@ -42,7 +42,7 @@
             <!-- 商品信息区域 -->
             <td>
               <!-- 商品图片 -->
-              <img :src="item.image" alt="Product Image" style="width: 70px; height: 70px;">
+              <img :src="item.image" alt="Product Image" class="BottleImage" />
               <!-- 商品名称 -->
               <div style="font-weight: bold;">{{ item.name }}
               <!-- 动态显示商品数量单位 --><br>
@@ -57,7 +57,7 @@
             <td>
               <!-- v-model双向绑定商品数量 -->
               <div
-                :style="{ color: item.Availability === 'In Stock' ? 'green' : 'red' }"
+                :style="{ 'font-weight': 'bold', color: item.Availability === 'In Stock' ? 'green' : 'red' }"
               >
                 {{ item.Availability }}
               </div>
@@ -69,7 +69,7 @@
           </tbody>
         </table>
 
-        <!-- 优惠券输入区域 -->
+
 
       </div>
 
@@ -187,7 +187,7 @@
   background-position: center;
   height: 60vh;
 
-  display: flex;
+  position: relative;
   flex-direction: column;
   justify-content: space-between;
   padding: 20px;
@@ -197,36 +197,32 @@
 
 /* 其他样式保持不变 */
 .title1 {
-  font-size: 3em;
-  margin-bottom: 10px;
-  margin-left: 150px;
-  position: relative;
-  top: 60px; /* 可选：增加顶部位置 */
+  font-size: 4em;
+
+  position: absolute;
+  top: 70px; /* 可选：增加顶部位置 */
+  left: 170px;
   font-weight: bold; /* 设置字体加粗 */
 }
 
 .description1 {
   font-size: 1em;
   max-width: 500px;
-  margin-left: 150px;
-  position: relative;
-  top: 60px; /* 可选：增加顶部位置 */
+  position: absolute;
+  top: 150px; /* 可选：增加顶部位置 */
+  left:170px;
 }
 
 .breadcrumb {
-  display: flex;
-  align-items: center;
-  margin-left: 1200px;
-  background-color: white; /* 设置背景颜色 */
-  width: 140px; /* 设置宽度 */
-  height: 60px; /* 设置高度 */
-  padding: 10px; /* 可选：增加内边距 */
-  border-radius: 5px; /* 可选：让背景有圆角 */
+  position: absolute;
+  left:1200px;
+  bottom: 0px;
+  background-color: white;
+  width: 8%; /* 这里设置为占父容器宽度的20%，可根据实际调整 */
+  height: 60px;
+  padding: 15px 130px 15px 15px;
+  border-radius: 0;
   color: black;
-  border-radius: 0; /* 去掉圆角 */
-  margin-top: 50px; /* 可选：增加顶部外边距 */
-  position: relative;
-  top: 20px; /* 可选：增加顶部位置 */
 }
 
 .breadcrumb-item {
@@ -247,13 +243,19 @@
 /* 购物车表格样式 */
 table {
   border-collapse: collapse; /* 合并单元格边框 */
-  width: 70%; /* 表格宽度占满容器 */
+  width: 100%; /* 表格宽度占满容器 */
   margin-top: 100px; /* 上边距 */
   margin-left: 250px; /* 左边距 */
   margin-right: 150px; /* 右边距 */
   margin-bottom: 13px;
   padding: 8px  80px  8px 80px; /* 内边距 */
 
+}
+.BottleImage {
+ width: 70px;
+  height: 70px;
+  float: left;
+  overflow: hidden;
 }
 
 /* 表格头部和单元格样式 */
@@ -268,43 +270,44 @@ th, td {
   align-items: center; /* 垂直居中 */
  }
 td:first-of-type {
-                  width:100px;
+                  width:7%;
   text-align: center; /* 文本左对齐 */
                 }
 th:nth-of-type(2) {
-  width: 500px;
+  width: 40%;
   padding: 8px;
-  display: flex;
+
 
 }
 td:nth-of-type(2) {
-  width: 500px;
+  width: 40%;
   padding: 8px;
-  display: flex;
+
+
 
 
 
 }
 td:nth-of-type(3) {
-          width: 120px;
+          width: 10%;
           color: #67696e;
 
 }
 td:nth-of-type(4) {
-  width: 200px;
-  font-weight: bold;
+  width: 16%;
+
   color: #666666;
 
 }
 
 td:nth-of-type(5) {
-  width: 100px;
+  width: 10%;
   font-weight: bold;
   color: #666666;
 
 }
 td:nth-of-type(6) {
-  width: 200px;
+  width: 16%;
 
 
 }
