@@ -1,7 +1,7 @@
 <template>
   <homePageFramework>
     <template #homePage>
-      <!-- header 头部布局-->
+      <!-- Login  header 头部布局-->
       <div class="login-page">
         <div class="content">
           <h1 class="title1">Login</h1>
@@ -21,7 +21,7 @@
       <!-- 整个认证容器，作为页面整体的包裹元素，设置flex布局纵向排列内容，最小高度占满视口高度，指定字体 -->
       <div class="auth-container">
         <!-- 顶部标题区域，用于放置“Log in”标题，设置内边距、文本居中、背景色 -->
-        <div class="header">
+        <div class=" header">
           <h1 class="title2">Log <span class="highlight">in</span></h1>
           <p>
             For the most part, chefs use the terms "spices and herbs" interchangeably, but there
@@ -29,7 +29,7 @@
           <p>are differences. Spices that .</p>
         </div>
 
-        <!-- 登陆页面的布局 -->
+        <!-- Login body 登陆页面的布局 -->
         <!-- 主内容区域，包含图片和登录表单两部分，采用flex布局横向排列 -->
         <div class="main-content">
           <!-- 左侧图片区域，用于展示香料图片和描述文字，设置flex属性占空间、纵向排列、居中内容，有背景色和内边距 -->
@@ -81,7 +81,7 @@
           </div>
         </div>
       </div>
-      <!--foot底部布局-->
+      <!--Login foot底部布局-->
       <div class="main-container">
         <div class="FootBackGround"></div>
         <!-- 上半部分容器 -->
@@ -185,7 +185,7 @@
   </homePageFramework>
 </template>
 <style scoped lang="scss">
-/*header头部属性.*/
+/*Login header头部属性.*/
 .login-page {
   background-image:
     linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
@@ -251,20 +251,22 @@
   margin: 0 5px;
   color: black; /* 设置分隔符颜色 */
 }
-/* body登录页面属性 */
+/* Login body登录页面属性 */
 /* 整个认证容器样式 */
 .auth-container {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+
   font-family: 'Inter', sans-serif;
+  height: 800px;
+
 }
 
 /* 顶部标题区域样式 */
 .header {
   padding: 40px 0;
   text-align: center;
-  background-color: #f8f9fa;
+
 }
 
 /* 标题样式 */
@@ -283,6 +285,10 @@
 .main-content {
   display: flex;
   flex: 1;
+  padding: 50px 300px 130px 300px;
+
+
+
 }
 
 /* 左侧图片区域样式 */
@@ -292,7 +298,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #f8f9fa;
+  transform: scale(1.2);
+  filter: contrast(1.2); // 对比度增强为 1.5 倍，可根据需要调整
   padding: 40px;
 }
 
@@ -323,6 +330,7 @@
 /* 右侧登录表单区域样式 */
 .right-panel {
   flex: 1;
+  transform: scale(1.2);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -466,6 +474,7 @@
   .left-panel,
   .right-panel {
     padding: 20px;
+
   }
 
   /* 香料图片宽度调整 */
@@ -480,7 +489,7 @@
   }
 }
 
-/* foot底部属性 */
+/* Login foot底部属性 */
 /* 整体大容器样式 */
 
 .main-container {

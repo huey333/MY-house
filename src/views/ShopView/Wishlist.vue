@@ -19,8 +19,8 @@
       </div>
 
 
-        <!-- Wishlist body页面 -->
-      <div  style="margin-bottom:  100px">
+        <!-- Wishlist body页面布局 -->
+      <div  style="margin-bottom:  100px ;">
         <!-- 商品表格 -->
         <table>
           <!-- 表格头部 -->
@@ -247,11 +247,12 @@
 /* 购物车表格样式 */
 table {
   border-collapse: collapse; /* 合并单元格边框 */
-  width: 80%; /* 表格宽度占满容器 */
+  width: 70%; /* 表格宽度占满容器 */
   margin-top: 100px; /* 上边距 */
-  margin-left: 150px; /* 左边距 */
+  margin-left: 250px; /* 左边距 */
   margin-right: 150px; /* 右边距 */
   margin-bottom: 13px;
+  padding: 8px  80px  8px 80px; /* 内边距 */
 
 }
 
@@ -332,9 +333,9 @@ EnterCouponCode{
 
 button {
   position: relative;
-  height: 60px;
+  height: 38px;
   border: none;
-  background-color: #ff9900;
+  background-color: #f67d10;
   color: white;
   border-radius: 30px; /* 统一设置为高度的一半（60px/2=30px） */
   padding: 0 20px;

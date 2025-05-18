@@ -19,7 +19,7 @@
       </div>
 
 
-        <!-- Cart body页面 -->
+        <!-- Cart body页面布局 -->
       <div  style="margin-bottom:  100px">
         <!-- 商品表格 -->
         <table>
@@ -64,7 +64,7 @@
         </table>
 
         <!-- 优惠券输入区域 -->
-        <div style="margin-left:150px">
+        <div style="margin-left:250px">
           <input class="EnterCouponCode"  style="width: 350px;height:60px ;border: 0px solid; background: #f2f3f6" placeholder="Enter Coupon Code">
           <button>APPLY</button>
         </div>
@@ -244,9 +244,9 @@
 /* 购物车表格样式 */
 table {
   border-collapse: collapse; /* 合并单元格边框 */
-  width: 80%; /* 表格宽度占满容器 */
+  width: 70%;  /* 表格宽度占满容器 */
   margin-top: 100px; /* 上边距 */
-  margin-left: 150px; /* 左边距 */
+  margin-left: 250px; /* 左边距 */
   margin-right: 150px; /* 右边距 */
   margin-bottom: 13px;
 
