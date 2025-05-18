@@ -1,6 +1,7 @@
 <template>
   <homePageFramework>
     <template #homePage>
+
       <!-- Wishlist header 头部布局-->
       <div class="login-page">
         <div class="content">
@@ -185,7 +186,7 @@
     url('@/assets/LoginView/background.jpg'); /* 叠加暗色渐变 */
   background-size: cover;
   background-position: center;
-  height: 60vh;
+  height: 400px;
 
   position: relative;
   flex-direction: column;
@@ -245,10 +246,11 @@ table {
   border-collapse: collapse; /* 合并单元格边框 */
   width: 100%; /* 表格宽度占满容器 */
   margin-top: 100px; /* 上边距 */
-  margin-left: 250px; /* 左边距 */
-  margin-right: 150px; /* 右边距 */
+  margin-left: 30%; /* 左边距 */
+  margin-right: 30px; /* 右边距 */
   margin-bottom: 13px;
   padding: 8px  80px  8px 80px; /* 内边距 */
+
 
 }
 .BottleImage {

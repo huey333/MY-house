@@ -20,7 +20,7 @@
 
 
         <!-- Cart body页面布局 -->
-      <div  style="margin-bottom:100px ; max-width: 1200px;">
+      <div  class="CartBody">
         <!-- 商品表格 -->
         <table>
           <!-- 表格头部 -->
@@ -182,7 +182,7 @@
     url('@/assets/LoginView/background.jpg'); /* 叠加暗色渐变 */
   background-size: cover;
   background-position: center;
-  height: 60vh;
+  height: 400px;
 
   position: relative;
   flex-direction: column;
@@ -237,6 +237,10 @@
 }
 /* body页面属性 */
 /* 购物车表格样式 */
+.CartBody{
+  margin-bottom:100px ; max-width: 1200px;
+
+}
 table {
   border-collapse: collapse; /* 合并单元格边框 */
   width: 100%;  /* 表格宽度占满容器 */

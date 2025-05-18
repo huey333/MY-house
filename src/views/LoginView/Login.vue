@@ -192,7 +192,7 @@
     url('@/assets/LoginView/background.jpg'); /* 叠加暗色渐变 */
   background-size: cover;
   background-position: center;
-  height: 60vh;
+  height: 400px;
   position: relative;
 
   flex-direction: column;
