@@ -1,14 +1,13 @@
 <template>
   <homePageFramework>
     <template #homePage>
-
       <!-- Wishlist header 头部布局-->
       <div class="login-page">
         <div class="content">
           <h1 class="title1">Wishlist</h1>
           <p class="description1">
-            Cloves, ginger, or pepper. Herbs are derived from green leaves and often grow in temperate climates.
-            Common herbs are mint, rosemary.
+            Cloves, ginger, or pepper. Herbs are derived from green leaves and often grow in
+            temperate climates. Common herbs are mint, rosemary.
           </p>
         </div>
 
@@ -19,61 +18,64 @@
         </div>
       </div>
 
-
-        <!-- Wishlist body页面布局 -->
-      <div  style="margin-bottom:100px ; max-width: 1200px;">
+      <!-- Wishlist body页面布局 -->
+      <div style="margin-bottom: 100px; max-width: 1200px">
         <!-- 商品表格 -->
         <table>
           <!-- 表格头部 -->
           <thead>
-          <tr>
-            <th></th>
-            <th>Product</th>
-            <th>Price</th>
-            <th>Availability</th>
-            <th>Total</th>
-            <th>Actions</th>
-          </tr>
+            <tr>
+              <th></th>
+              <th>Product</th>
+              <th>Price</th>
+              <th>Availability</th>
+              <th>Total</th>
+              <th>Actions</th>
+            </tr>
           </thead>
           <!-- 表格内容 - 使用v-for指令循环渲染商品列表 -->
           <tbody>
-          <tr v-for="(item, index) in products" :key="index">
-            <!-- 删除商品按钮 -->
-            <td ><buttonX @click="removeProduct(index)"><el-icon style="font-size: 28px;"><Close /></el-icon></buttonX></td>
-            <!-- 商品信息区域 -->
-            <td>
-              <!-- 商品图片 -->
-              <img :src="item.image" alt="Product Image" class="BottleImage" />
-              <!-- 商品名称 -->
-              <div style="font-weight: bold;">{{ item.name }}
-              <!-- 动态显示商品数量单位 --><br>
-              <span v-if="item.quantity > 1">{{ item.quantity }} Pieces</span>
-              <span v-else>{{ item.quantity }} Piece</span>
+            <tr v-for="(item, index) in products" :key="index">
+              <!-- 删除商品按钮 -->
+              <td>
+                <buttonX @click="removeProduct(index)"
+                  ><el-icon style="font-size: 28px"><Close /></el-icon
+                ></buttonX>
+              </td>
+              <!-- 商品信息区域 -->
+              <td>
+                <!-- 商品图片 -->
+                <img :src="item.image" alt="Product Image" class="BottleImage" />
+                <!-- 商品名称 -->
+                <div style="font-weight: bold">
+                  {{ item.name }}
+                  <!-- 动态显示商品数量单位 --><br />
+                  <span v-if="item.quantity > 1">{{ item.quantity }} Pieces</span>
+                  <span v-else>{{ item.quantity }} Piece</span>
                 </div>
-            </td>
+              </td>
 
-            <!-- 商品单价（使用currency过滤器格式化） -->
-            <td>{{ item.price | currency }}$</td>
-            <!-- 商品数量输入框 -->
-            <td>
-              <!-- v-model双向绑定商品数量 -->
-              <div
-                :style="{ 'font-weight': 'bold', color: item.Availability === 'In Stock' ? 'green' : 'red' }"
-              >
-                {{ item.Availability }}
-              </div>
-            </td>
-            <!-- 商品小计（单价×数量） -->
-            <td>{{ item.price * item.quantity | currency }}</td>
-            <td><button>Add To Cart</button></td>
-          </tr>
+              <!-- 商品单价（使用currency过滤器格式化） -->
+              <td>{{ item.price | currency }}$</td>
+              <!-- 商品数量输入框 -->
+              <td>
+                <!-- v-model双向绑定商品数量 -->
+                <div
+                  :style="{
+                    'font-weight': 'bold',
+                    color: item.Availability === 'In Stock' ? 'green' : 'red',
+                  }"
+                >
+                  {{ item.Availability }}
+                </div>
+              </td>
+              <!-- 商品小计（单价×数量） -->
+              <td>{{ (item.price * item.quantity) | currency }}</td>
+              <td><button>Add To Cart</button></td>
+            </tr>
           </tbody>
         </table>
-
-
-
       </div>
-
 
       <!--Wishlist foot底部布局-->
       <div class="main-container">
@@ -143,9 +145,7 @@
         <div class="lower-container">
           <!-- 地址容器 -->
           <div class="address-container">
-            <i
-              class="fas fa-map-marker-alt"
-            ></i>
+            <i class="fas fa-map-marker-alt"></i>
 
             <p>
               2416 Mapleview Drive<br />
@@ -170,10 +170,7 @@
             </p>
           </div>
         </div>
-        <div class="lower-container2">
-
-
-        </div>
+        <div class="lower-container2"></div>
       </div>
     </template>
   </homePageFramework>
@@ -211,12 +208,12 @@
   max-width: 500px;
   position: absolute;
   top: 150px; /* 可选：增加顶部位置 */
-  left:170px;
+  left: 170px;
 }
 
 .breadcrumb {
   position: absolute;
-  left:1200px;
+  left: 1200px;
   bottom: 0px;
   background-color: white;
   width: 8%; /* 这里设置为占父容器宽度的20%，可根据实际调整 */
@@ -249,71 +246,56 @@ table {
   margin-left: 30%; /* 左边距 */
   margin-right: 30px; /* 右边距 */
   margin-bottom: 13px;
-  padding: 8px  80px  8px 80px; /* 内边距 */
-
-
+  padding: 8px 80px 8px 80px; /* 内边距 */
 }
 .BottleImage {
- width: 70px;
+  width: 70px;
   height: 70px;
   float: left;
   overflow: hidden;
 }
 
 /* 表格头部和单元格样式 */
-th, td {
-
+th,
+td {
   border: 1px solid #ddd; /* 边框样式 */
-  padding: 8px  8px  8px 8px; /* 内边距 */
+  padding: 8px 8px 8px 8px; /* 内边距 */
   text-align: left; /* 文本左对齐 */
   font-size: 20px; /* 字体大小 */
   font-weight: bold;
   height: 80px; /* 单元格高度 */
   align-items: center; /* 垂直居中 */
- }
+}
 td:first-of-type {
-                  width:7%;
+  width: 7%;
   text-align: center; /* 文本左对齐 */
-                }
+}
 th:nth-of-type(2) {
   width: 40%;
   padding: 8px;
-
-
 }
 td:nth-of-type(2) {
   width: 40%;
   padding: 8px;
-
-
-
-
-
 }
 td:nth-of-type(3) {
-          width: 10%;
-          color: #67696e;
-
+  width: 10%;
+  color: #67696e;
 }
 td:nth-of-type(4) {
   width: 16%;
 
   color: #666666;
-
 }
 
 td:nth-of-type(5) {
   width: 10%;
   font-weight: bold;
   color: #666666;
-
 }
 td:nth-of-type(6) {
   width: 16%;
-
-
 }
-
 
 /* 删除按钮样式 */
 buttonX {
@@ -324,7 +306,7 @@ buttonX {
 }
 /* 重置默认样式，消除浏览器默认的内外边距等影响 */
 
-EnterCouponCode{
+EnterCouponCode {
   width: 350px;
   height: 60px;
   background: #f2f3f6;
@@ -332,8 +314,6 @@ EnterCouponCode{
   border-bottom-left-radius: 10px; /* 左下角圆角 */
   padding: 0 15px; /* 内边距，让文字和边框有间距 */
   font-size: 16px; /* 字体大小 */
-
-
 }
 
 button {
@@ -351,7 +331,7 @@ button {
 }
 
 button::after {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
@@ -520,12 +500,12 @@ button:hover {
 }
 
 /* 下半部分容器样式 */
-.lower-container2{
+.lower-container2 {
   height: 60px;
 }
 .lower-container {
   display: flex;
-/*  justify-content: space-around;
+  /*  justify-content: space-around;
   border-top: 1px solid #444;*/
   background-color: #1c1e22;
   border-bottom: 1px solid #444;
@@ -533,7 +513,6 @@ button:hover {
   height: 130px;
   position: relative;
   z-index: 1; /* 确保背景图在最底层 */
-
 }
 
 /* 地址、邮箱、电话容器通用样式 */
@@ -542,7 +521,7 @@ button:hover {
 .phone-container {
   display: flex;
   flex-direction: column;
-  align-items: center;   // 水平居中
+  align-items: center; // 水平居中
   justify-content: center; // 垂直居中
   text-align: center;
   margin-left: 150px;
@@ -560,14 +539,14 @@ button:hover {
 
 <script setup>
 import homePageFramework from '@/components/HomePageFramework/homePageFramework.vue'
-import { ref } from 'vue';
+import { ref } from 'vue'
 const products = ref([
   {
     name: 'Red Chili Ground',
     price: 12.99,
     quantity: 1,
     Availability: 'In Stock',
-    image:'src/assets/CratImage/Bottle1.png', // 需替换为实际图片地址
+    image: 'src/assets/CratImage/Bottle1.png', // 需替换为实际图片地址
   },
   {
     name: 'Black Pepper Shaker',
@@ -584,7 +563,7 @@ const products = ref([
     Availability: 'Out of Stock',
     image: 'src/assets/CratImage/Bottle3.png', // 需替换为实际图片地址
   },
-]);
+])
 
 const newsList = [
   {

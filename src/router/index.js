@@ -7,7 +7,8 @@ import Shop from '@/views/ShopView/Shop.vue'
 import Cart from '@/views/ShopView/Cart.vue'
 import Wishlist from '@/views/ShopView/Wishlist.vue'
 import ProductDetail from '@/views/ShopView/ProductDetail/index.vue'
-
+import WholeHeader from '@/views/ShopView/WholeHeader.vue'
+import WholeFoot from '@/views/ShopView/WholeFoot.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -35,6 +36,16 @@ const router = createRouter({
       path: '/Wishlist',
       name: 'Wishlist',
       component: Wishlist,
+    },
+    {
+      path: '/WholeHeader',
+      name: 'WholeHeader',
+      component: WholeHeader,
+    },
+    {
+      path: '/WholeFoot',
+      name: 'WholeFoot',
+      component: WholeFoot,
     },
 
     {
