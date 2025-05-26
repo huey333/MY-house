@@ -7,7 +7,7 @@ import 'element-plus/dist/index.css'
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'; // 导入所有图标
 import App from './App.vue'
 import router from './router'
-
+import "./CSS/LoginView/TakeWord.css"
 const app = createApp(App)
 app.use(ElementPlus);
 

@@ -1,14 +1,14 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import homePageFramework from '../components/HomePageFramework/homePageFramework.vue'
 import homeView from '../views/Home/homeView.vue'
-import Login from '@/views/LoginView/Login.vue'
+import Login2 from '@/views/LoginView/Login2.vue'
 import SignUp from '@/views/LoginView/SignUp.vue'
 import Shop from '@/views/ShopView/Shop.vue'
 import Cart from '@/views/ShopView/Cart.vue'
-import Wishlist from '@/views/ShopView/Wishlist.vue'
+import WishList2 from '@/views/ShopView/WishList2.vue'
 import ProductDetail from '@/views/ShopView/ProductDetail/index.vue'
-import WholeHeader from '@/views/ShopView/WholeHeader.vue'
-import WholeFoot from '@/views/ShopView/WholeFoot.vue'
+import Foot from '@/views/ShopView/Foot.vue'
+import Header from '@/views/ShopView/Header.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -23,9 +23,9 @@ const router = createRouter({
       component: homeView,
     },
     {
-      path: '/login',
-      name: 'login',
-      component: Login,
+      path: '/login2',
+      name: 'login2',
+      component: Login2,
     },
     {
       path: '/Cart',
@@ -33,19 +33,19 @@ const router = createRouter({
       component: Cart,
     },
     {
-      path: '/Wishlist',
-      name: 'Wishlist',
-      component: Wishlist,
+      path: '/WishList2',
+      name: 'WishList2',
+      component: WishList2,
     },
     {
-      path: '/WholeHeader',
-      name: 'WholeHeader',
-      component: WholeHeader,
+      path: '/Header',
+      name: 'Header',
+      component: Header,
     },
     {
-      path: '/WholeFoot',
-      name: 'WholeFoot',
-      component: WholeFoot,
+      path: '/Foot',
+      name: 'Foot',
+      component: Foot,
     },
 
     {
